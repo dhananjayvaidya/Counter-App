@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+	<link rel="stylesheet" href="css/angular-material.min.css">
+	<style type="text/css" >
+	#displayCount{
+		font-size:100px;
+		text-align:center;
+	}
+	.forms{
+	display:none;
+	}
+	</style>
+	<title>Counter App</title>
+	<script src="js/jquery-3.1.1.min.js" ntegrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+	<script src="js/angular.min.js"></script>
+    <script src="js/angular-animate.min.js"></script>
+    <script src="js/angular-aria.min.js"></script>
+    <script src="js/angular-messages.min.js"></script>
+    <script src="js/angular-material.min.js"></script>
+    
+	      
+   </head>
+   <body ng-app="firstApplication"  md-swipe-left="toggleLeft()">
+      
+    <div ng-controller="AppCtrl" layout="column"  ng-cloak>
+		<md-toolbar layout="row">
+			 <md-icon md-svg-src="./img/lines.svg" ng-click="toggleLeft()" class="s36" aria-label="" style="margin-left:-5px;outline:none;"></md-icon>
+			
+			<div class="md-toolbar-tools">
+			
+			Counter App</div>
+		</md-toolbar>
+		<section layout="row" flex>
+			<md-sidenav class="md-sidenav-left" md-component-id="left" md-enable-backdrop md-whiteframe="4">
+				<md-toolbar class="md-theme-indigo">
+					<h1 class="md-toolbar-tools">Counter App</h1>
+				</md-toolbar>
+			<md-content layout="column">
+						
+				<md-button ng-click="showAboutUs()" class="md-accent">
+					About Us
+				</md-button>
+				
+			</md-content>
+			</md-sidenav>
+			
+			<md-content flex layout-padding id='loadIn'>
+				<div layout="column" class='forms' id='about-us'>
+				 <p>About Us</p>
+				
+				</div>
+				<div layout="column" class="forms" id="showCount">
+				<md-list-item class="md-2-line">
+                    <div class="md-list-item-text">
+						<h3>Hellow </h3>
+						<p>Secondary text</p>
+					</div>
+				</md-list-item>
+				<md-list-item class="md-2-line">
+                    <div class="md-list-item-text">
+						<h3>Hellow </h3>
+						<p>Secondary text</p>
+					</div>
+				</md-list-item>
+				<md-list-item class="md-2-line">
+                    <div class="md-list-item-text">
+						<h3>Hellow </h3>
+						<p>Secondary text</p>
+					</div>
+				</md-list-item>
+				<md-list-item class="md-2-line">
+                    <div class="md-list-item-text">
+						<h3>Hellow </h3>
+						<p>Secondary text</p>
+					</div>
+				</md-list-item>
+				<md-list-item class="md-2-line">
+                    <div class="md-list-item-text">
+						<h3>Hellow </h3>
+						<p>Secondary text</p>
+					</div>
+				</md-list-item>
+				</div>
+				<div layout="column"  id='form1' class='forms' >
+					<md-input-container class="md-block" flex-gt-sm>
+						
+						<input ng-model="user.count_name" id='count_name' placeholder="Count Name">
+					</md-input-container>
+
+					<div id="displayCount">0</div>
+					<div layout="row" layout-align="center end">
+					<md-button ng-click="increment()"  class='md-fab md-primary ' style="width:100px;height:100px;font-size:50px;" >+</md-button>
+					<md-button ng-click="decrement()" class='md-fab md-primary' style="width:100px;height:100px;font-size:50px;">-</md-button>
+					
+					</div>
+					<div layout="column" layout-align="center end" layout-wrap>
+					<md-button ng-click="reset()" class='md-raised md-warn'>Reset</md-button>
+					<md-button ng-click="saveThisCount()" class='md-raised md-primary'>Save this Count</md-button>
+					<md-button ng-click="fetchCount()" class='md-raised '>View Saved Counts</md-button>
+					</div>
+					
+				</div>
+								
+				
+			</md-content>
+		</section>
+		
+	</div>
+	
+	  
+   
+
+	
+  <!-- Angular Material Library -->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script src="js/main.js"></script>
+	<script type="text/javascript">
+        app.initialize();
+		
+	
+/**
+Copyright 2016 Google Inc. All Rights Reserved. 
+Use of this source code is governed by an MIT-style license that can be foundin the LICENSE file at http://material.angularjs.org/HEAD/license.
+**/
+
+    </script>
+</body>
+
+</html>
